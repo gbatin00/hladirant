@@ -44,12 +44,14 @@ export default function Home() {
 								<ul>
 									{languages.map((language) => (
 										<li key={language} className={styles.listItems}>
-											<Image
-												src={`/images/${language.split("-")[0]}.svg`}
-												alt=""
-												width={25}
-												height={25}
-											/>
+											<Link href={router.asPath} locale={language}>
+												<Image
+													src={`/images/${language.split("-")[0]}.svg`}
+													alt=""
+													width={25}
+													height={25}
+												/>
+											</Link>
 											<Link href={router.asPath} locale={language}>
 												{languageMap[language]}
 											</Link>
