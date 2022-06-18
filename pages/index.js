@@ -3,6 +3,7 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import text from "../public/translations.js";
+import Link from "next/link";
 
 export default function Home() {
 	let router = useRouter();
@@ -17,14 +18,47 @@ export default function Home() {
 	const projectinfo_question3 = getText(locale, "projectinfo_question3");
 	const projectinfo_question2 = getText(locale, "projectinfo_question2");
 
+	const languages = router.locales;
+	const languageMap = {
+		"en-US": "English",
+		"hr-HR": "Hrvatski",
+		"de-DE": "Deutsch",
+	};
 	return (
 		<div>
 			<main className={styles.main}>
 				<div className={styles.header_parent}>
-					<div className={styles.top_header_parent}>
-						<div className={styles.top_subtitle}>LOGO</div>
-						<div className={styles.subtitle}></div>
-					</div>
+					<header className={styles.header}>
+						<nav className={styles.nav}>
+							<div className={styles.logo}>LOGO</div>
+							<div className={styles.lang_menu}>
+								<div className={styles.selected_lang}>
+									<Image
+										src={`/images/${locale.split("-")[0]}.svg`}
+										alt=""
+										width={25}
+										height={25}
+									/>
+									{languageMap[locale]}
+								</div>
+								<ul>
+									{languages.map((language) => (
+										<li key={language} className={styles.listItems}>
+											<Image
+												src={`/images/${language.split("-")[0]}.svg`}
+												alt=""
+												width={25}
+												height={25}
+											/>
+											<Link href={router.asPath} locale={language}>
+												{languageMap[language]}
+											</Link>
+										</li>
+									))}
+								</ul>
+							</div>
+						</nav>
+					</header>
 
 					<div className={styles.headline}>HLADIRANT</div>
 					<div className={styles.subtitle}>{subtitle}</div>

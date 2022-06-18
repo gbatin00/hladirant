@@ -25,11 +25,11 @@ const text = {
 
 	image_descriptor2_en: "The device sprays water mist every 30 seconds",
 	image_descriptor2_hr: "Uređaj šprica sitne kapljice vode svakih 30 sekundi",
-	image_descriptor2_de: "Das Gerät spricht Wassermist jede 30 Sekunden",
+	image_descriptor2_de: "Das Gerät spritzt Wassermist jede 30 Sekunden",
 
-	image_descriptor3_en: "Stay cool and refreshed",
-	image_descriptor3_hr: "Ostanite hladni i osvježeni",
-	image_descriptor3_de: "Bleiben Sie kalt und frisch",
+	image_descriptor3_en: "Using this device you stay cold and refreshed",
+	image_descriptor3_hr: "Uz ovaj uređaj ostajete hladni i svježi",
+	image_descriptor3_de: "Mit diesem Gerät bleiben Sie kalt und frisch",
 
 	projectinfo_question3_en: "Where can I find these devices?",
 	projectinfo_question3_hr: "Gdje možete pronaći ove uređaje?",
