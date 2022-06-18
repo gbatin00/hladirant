@@ -2,15 +2,20 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
+import text from "../public/translations.js";
 
 export default function Home() {
 	let router = useRouter();
-	let subtitle =
-		router.locale === "en-US"
-			? "Learn how we keep the city of Split cool"
-			: router.locale === "hr-HR"
-			? "Saznaj kako hladimo grad Split"
-			: "";
+	const locale = router.locale;
+
+	const subtitle = getText(locale, "subtitle");
+	const projectinfo_text = getText(locale, "projectinfo_text");
+	const image_descriptor1 = getText(locale, "image_descriptor1");
+	const image_descriptor2 = getText(locale, "image_descriptor2");
+	const image_descriptor3 = getText(locale, "image_descriptor3");
+	const projectinfo_question1 = getText(locale, "projectinfo_question1");
+	const projectinfo_question3 = getText(locale, "projectinfo_question3");
+	const projectinfo_question2 = getText(locale, "projectinfo_question2");
 
 	return (
 		<div>
@@ -35,16 +40,12 @@ export default function Home() {
 
 				<div className={styles.projectinfo}>
 					<div className={styles.projectinfo_question}>
-						What is the Hladirant project?
+						{projectinfo_question1}
 					</div>
-					<p className={styles.projectinfo_text}>
-						The Hladirant Project is an innitiative to create more open and cool
-						spaces in the city of Split. It is a plan to make the summer heat
-						easier to bear by providing a built in cooler through out the city.
-					</p>
+					<p className={styles.projectinfo_text}>{projectinfo_text}</p>
 
 					<div className={styles.projectinfo_question}>
-						What is some general information I need to know?
+						{projectinfo_question2}
 					</div>
 					<div className={styles.image}>
 						<Image
@@ -54,7 +55,7 @@ export default function Home() {
 							height={128}
 						/>
 					</div>
-					<p className={styles.image_descriptor}>The water is safe to drink</p>
+					<p className={styles.image_descriptor}>{image_descriptor1}</p>
 					<div className={styles.image}>
 						<Image
 							src="/images/pjescani.svg"
@@ -63,9 +64,7 @@ export default function Home() {
 							height={128}
 						/>
 					</div>
-					<p className={styles.image_descriptor}>
-						The device sprays water mist every 30 seconds
-					</p>
+					<p className={styles.image_descriptor}>{image_descriptor2}</p>
 					<div className={styles.image}>
 						<Image
 							src="/images/temperature.svg"
@@ -74,10 +73,10 @@ export default function Home() {
 							height={128}
 						/>
 					</div>
-					<p className={styles.image_descriptor}>Stay cool and refreshed</p>
+					<p className={styles.image_descriptor}> {image_descriptor3} </p>
 
 					<div className={styles.projectinfo_question}>
-						Where can I find these devices?
+						{projectinfo_question3}
 					</div>
 				</div>
 			</main>
@@ -96,3 +95,12 @@ export default function Home() {
 		</div>
 	);
 }
+const getText = (locale, keyName) => {
+	return locale === "en-US"
+		? text[keyName + "_en"]
+		: locale === "hr-HR"
+		? text[keyName + "_hr"]
+		: locale === "de-DE"
+		? text[keyName + "_de"]
+		: "";
+};
