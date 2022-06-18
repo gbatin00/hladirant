@@ -7,6 +7,11 @@ export default function Home() {
 		<div>
 			<main className={styles.main}>
 				<div className={styles.header_parent}>
+					<div className={styles.top_header_parent}>
+						<div className={styles.top_subtitle}>LOGO</div>
+						<div className={styles.subtitle}></div>
+					</div>
+
 					<div className={styles.headline}>HLADIRANT</div>
 					<div className={styles.subtitle}>
 						Learn how we keep the city of Split cool
@@ -31,7 +36,7 @@ export default function Home() {
 						easier to bear by providing a built in cooler through out the city.
 					</p>
 
-					<div className={styles.projectinfo_panel}>
+					<div className={styles.projectinfo_question}>
 						What is some general information I need to know?
 					</div>
 					<div className={styles.image}>
@@ -52,8 +57,21 @@ export default function Home() {
 						/>
 					</div>
 					<p className={styles.image_descriptor}>
-						The cooler sprays water mist every 30 seconds
+						The device sprays water mist every 30 seconds
 					</p>
+					<div className={styles.image}>
+						<Image
+							src="/images/temperature.svg"
+							alt="hladirant"
+							width={128}
+							height={128}
+						/>
+					</div>
+					<p className={styles.image_descriptor}>Stay cool and refreshed</p>
+
+					<div className={styles.projectinfo_question}>
+						Where can I find these devices?
+					</div>
 				</div>
 			</main>
 			<footer className={styles.footer}>
