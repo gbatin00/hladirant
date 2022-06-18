@@ -1,8 +1,17 @@
 import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
+import { useRouter } from "next/router";
 
 export default function Home() {
+	let router = useRouter();
+	let subtitle =
+		router.locale === "en-US"
+			? "Learn how we keep the city of Split cool"
+			: router.locale === "hr-HR"
+			? "Saznaj kako hladimo grad Split"
+			: "";
+
 	return (
 		<div>
 			<main className={styles.main}>
@@ -13,9 +22,7 @@ export default function Home() {
 					</div>
 
 					<div className={styles.headline}>HLADIRANT</div>
-					<div className={styles.subtitle}>
-						Learn how we keep the city of Split cool
-					</div>
+					<div className={styles.subtitle}>{subtitle}</div>
 				</div>
 
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 5 1440 320">
@@ -28,7 +35,7 @@ export default function Home() {
 
 				<div className={styles.projectinfo}>
 					<div className={styles.projectinfo_question}>
-						What is the hladirant project?
+						What is the Hladirant project?
 					</div>
 					<p className={styles.projectinfo_text}>
 						The Hladirant Project is an innitiative to create more open and cool

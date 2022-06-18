@@ -21,6 +21,9 @@
 	--sage_green: #87af73;
 }
 
+.top_header_parent {
+	width: 100%;
+}
 .top_subtitle {
 	display: flex;
 	flex-direction: row;
@@ -30,6 +33,7 @@
 
 	width: 70px;
 	height: 40px;
+	color: #ffffff;
 }
 .header_parent {
 	background-color: #87af73;
@@ -72,7 +76,7 @@
 	line-height: 34px;
 	text-align: center;
 	margin: auto;
-	margin-top: 1rem;
+	margin-top: 1.75rem;
 	margin-bottom: 1rem;
 	color: #87af73;
 
