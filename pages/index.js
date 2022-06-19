@@ -118,7 +118,7 @@ export default function Home() {
 						<Image
 							src="/images/karta.png"
 							alt="karta"
-							width="800px"
+							width="600px"
 							height="300px"
 						/>
 					</div>
