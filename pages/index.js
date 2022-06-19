@@ -4,10 +4,12 @@ import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
 import text from "../public/translations.js";
 import Link from "next/link";
+import { useTheme } from "next-themes";
 
 export default function Home() {
 	let router = useRouter();
 	const locale = router.locale;
+	const { theme, setTheme } = useTheme();
 
 	const subtitle = getText(locale, "subtitle");
 	const projectinfo_text = getText(locale, "projectinfo_text");
@@ -27,7 +29,7 @@ export default function Home() {
 	return (
 		<div>
 			<main className={styles.main}>
-				<div className={styles.header_parent}>
+				<div className="header_parent samsung_internet">
 					<header className={styles.header}>
 						<nav className={styles.nav}>
 							<div className={styles.logo}>
@@ -53,12 +55,14 @@ export default function Home() {
 									{languages.map((language) => (
 										<li key={language} className={styles.listItems}>
 											<Link href={router.asPath} locale={language}>
-												<Image
-													src={`/images/${language.split("-")[0]}.svg`}
-													alt=""
-													width={25}
-													height={25}
-												/>
+												<a>
+													<Image
+														src={`/images/${language.split("-")[0]}.svg`}
+														alt=""
+														width={25}
+														height={25}
+													/>
+												</a>
 											</Link>
 											<Link href={router.asPath} locale={language}>
 												{languageMap[language]}
@@ -86,20 +90,36 @@ export default function Home() {
 					<div className={styles.projectinfo_question}>
 						{projectinfo_question1}
 					</div>
-					<p className={styles.projectinfo_text}>{projectinfo_text}</p>
+					<p
+						className={
+							theme == "dark"
+								? styles.projectinfo_text_dark
+								: styles.projectinfo_text
+						}
+					>
+						{projectinfo_text}
+					</p>
 
 					<div className={styles.projectinfo_question}>
 						{projectinfo_question2}
 					</div>
 					<div className={styles.image}>
 						<Image
-							src="/images/novo 1.svg"
+							src="/images/bottle.svg"
 							alt="hladirant"
 							width={128}
 							height={128}
 						/>
 					</div>
-					<p className={styles.image_descriptor}>{image_descriptor1}</p>
+					<p
+						className={
+							theme == "dark"
+								? styles.image_descriptor_dark
+								: styles.image_descriptor
+						}
+					>
+						{image_descriptor1}
+					</p>
 					<div className={styles.image}>
 						<Image
 							src="/images/pjescani.svg"
@@ -108,7 +128,15 @@ export default function Home() {
 							height={128}
 						/>
 					</div>
-					<p className={styles.image_descriptor}>{image_descriptor2}</p>
+					<p
+						className={
+							theme == "dark"
+								? styles.image_descriptor_dark
+								: styles.image_descriptor
+						}
+					>
+						{image_descriptor2}
+					</p>
 					<div className={styles.image}>
 						<Image
 							src="/images/temperature.svg"
@@ -117,7 +145,16 @@ export default function Home() {
 							height={128}
 						/>
 					</div>
-					<p className={styles.image_descriptor}> {image_descriptor3} </p>
+					<p
+						className={
+							theme == "dark"
+								? styles.image_descriptor_dark
+								: styles.image_descriptor
+						}
+					>
+						{" "}
+						{image_descriptor3}{" "}
+					</p>
 
 					<div className={styles.projectinfo_question}>
 						{projectinfo_question3}
@@ -148,3 +185,4 @@ const getText = (locale, keyName) => {
 		? text[keyName + "_de"]
 		: "";
 };
+Home.theme = "dark";
