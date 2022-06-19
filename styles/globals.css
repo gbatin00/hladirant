@@ -26,7 +26,19 @@ a {
 }
 @media (prefers-color-scheme: dark) {
 	.samsung_internet {
-		background: #87af73;
+		background-color: #87af73;
 		color: white;
+	}
+	.header_parent {
+		background-color: #87af73;
+	}
+}
+@media (prefers-color-scheme: light) {
+	.samsung_internet {
+		background-color: #87af73;
+		color: white;
+	}
+	.header_parent {
+		background-color: #87af73;
 	}
 }
