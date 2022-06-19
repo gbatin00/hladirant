@@ -114,6 +114,14 @@ export default function Home() {
 					<div className={styles.projectinfo_question}>
 						{projectinfo_question3}
 					</div>
+					<div className={styles.projectinfo_question}>
+						<Image
+							src="/images/karta.png"
+							alt="karta"
+							width="800px"
+							height="300px"
+						/>
+					</div>
 				</div>
 			</main>
 			<footer className={styles.footer}>
