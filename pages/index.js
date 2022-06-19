@@ -30,7 +30,15 @@ export default function Home() {
 				<div className={styles.header_parent}>
 					<header className={styles.header}>
 						<nav className={styles.nav}>
-							<div className={styles.logo}>LOGO</div>
+							<div className={styles.logo}>
+								<Image
+									src="/images/logo.png"
+									alt="logo"
+									width={32}
+									height={32}
+								/>
+							</div>
+
 							<div className={styles.lang_menu}>
 								<div className={styles.selected_lang}>
 									<Image
